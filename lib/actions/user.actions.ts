@@ -8,11 +8,6 @@ import { cookies } from "next/headers";
 import { avatarPlaceholderUrl } from "@/constants";
 import { redirect } from "next/navigation";
 
-type Props = {
-  fullName: string;
-  email: string;
-};
-
 const handleError = (error: unknown, message: string) => {
   console.log(error, message);
   throw error;
@@ -38,7 +33,7 @@ export const sendEmailOTP = async ({ email }: { email: string }) => {
   }
 };
 
-export const createAccount = async ({ fullName, email }: Props) => {
+export const createAccount = async ({ fullName, email }:{fullName:string;email:string} ) => {
   try {
     const existingUser = await getUserByEmail(email);
     const accountId = await sendEmailOTP({ email });
