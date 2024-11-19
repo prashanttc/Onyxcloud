@@ -35,8 +35,8 @@ const Sidebar = ({avatar,fullName,email}:Props) => {
       <div className='sidebar-user-info'>
         <Image src={avatar} height={44} width={44} alt='' className='sidebar-user-avatar'/>
         <div className="hidden lg:block">
-          <p className="subtitle-2 capitalize">{fullName}</p>
-          <p className="caption">{email}</p>
+          <p className="subtitle-2 capitalize dark:text-white">{fullName}</p>
+          <p className="caption dark:text-white">{email}</p>
         </div>
       </div>
 

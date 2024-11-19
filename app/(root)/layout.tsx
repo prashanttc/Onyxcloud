@@ -9,7 +9,7 @@ import { Toaster } from "@/components/ui/toaster"
 export const dynamic = 'force-dynamic'
 
 const layout = async({ children }: { children: React.ReactNode }) => {
-  const CurrentUser  =await getCurrentUser();
+  const CurrentUser  = await getCurrentUser();
   if(!CurrentUser) return redirect("/sign-in")
   return (
     <main className='flex h-screen'>

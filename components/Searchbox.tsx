@@ -7,6 +7,7 @@ import { GetFile } from '@/lib/actions/file.actions';
 import {useDebounce} from "use-debounce";
 import { Models } from 'node-appwrite';
 import Thumbnail from './Thumbnail';
+import { SearchIcon } from 'lucide-react';
 
 const Searchbox = () => {
   const [query, setQuery] = useState("")
@@ -45,8 +46,8 @@ const handleclick =(file:Models.Document)=>{
   }, [searchQuery])
   return (
     <div className='search'>
-      <div className='search-input-wrapper'>
-        <Image src="/assets/icons/search.svg" height={24} width={24} alt='' />
+      <div className='search-input-wrapper dark:border-[1px] dark:border-white'>
+       <SearchIcon/>
         <Input placeholder='Search' value={query} className='search-input' onChange={(e) => setQuery(e.target.value)} />
         {open && (
           <ul className='search-result'>

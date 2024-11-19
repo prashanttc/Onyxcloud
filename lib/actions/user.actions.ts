@@ -7,7 +7,6 @@ import { parseStringify } from "../utils";
 import { cookies } from "next/headers";
 import { avatarPlaceholderUrl } from "@/constants";
 import { redirect } from "next/navigation";
-import { error } from "console";
 
 const handleError = (error: unknown, message: string) => {
   console.log(error, message);

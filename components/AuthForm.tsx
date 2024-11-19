@@ -17,7 +17,6 @@ type Props = {
     type: "sign-in" | "sign-up"
 }
 
-
 const AuthForm = ({ type }: Props) => {
 
     const [loading, setLoading] = useState(false);
@@ -47,7 +46,6 @@ const AuthForm = ({ type }: Props) => {
               : await SigninUser({ email: values.email });
             setAccountId(userResponse.accountId); 
             const error = userResponse.error;
-            console.log(error)
           if(error){
             if (error === "user already exists") {
                 setErrorMessage("The account already exists. Please sign in.");

@@ -1,7 +1,7 @@
 import type { Config } from "tailwindcss";
 
 const config: Config = {
-  darkMode: ["class"],
+  darkMode: "class",
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -12,7 +12,8 @@ const config: Config = {
   		colors: {
   			brand: {
   				'100': '#EA6365',
-  				DEFAULT: '#FA7275'
+  			
+  				DEFAULT: '#FA7275',
   			},
   			red: '#FF7474',
   			error: '#b80000',
@@ -28,7 +29,9 @@ const config: Config = {
   			},
   			dark: {
   				'100': '#04050C',
-  				'200': '#131524'
+  				'200': '#131524',
+				'300': '#A9A9A9',
+				'400':'#333333'
   			},
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',

@@ -18,8 +18,8 @@ const Card = ({ file }: { file: Models.Document }) => {
             </div>
             <div className='file-card-details'>
                 <p className='subtitle-2 line-clamp-1'>{file.name}</p>
-                <FormatedDate date={file.$createdAt} className='body-2 text-light-100' />
-             <p className='line-clamp-1 text-light-200 caption'>
+                <FormatedDate date={file.$createdAt} className='body-2 text-light-100 dark:text-light-200' />
+             <p className='line-clamp-1 text-light-200 caption dark:text-white'>
              By: {file.owner.fullName}
              </p>
             </div>

@@ -3,14 +3,17 @@ import React from 'react'
 import Searchbox from './Searchbox'
 import FileUploader from './FileUploader'
 import { SignOutUser } from '@/lib/actions/user.actions'
+import ThemeToggle from './ThemeToggle'
 
 
 const Header = ({ownerId,accountId}:{ownerId:string; accountId:string})=> {
   return (
-    <header className='header'>
+   <div className=''>
+     <header className='header'>
       <Searchbox />
       <div className='header-wrapper'>
         <FileUploader ownerId={ownerId}  accountId={accountId}/>
+        <ThemeToggle/>
         <form action={async () => {
           'use server';
           await SignOutUser()
@@ -21,6 +24,7 @@ const Header = ({ownerId,accountId}:{ownerId:string; accountId:string})=> {
         </form>
       </div>
     </header>
+   </div>
   )
 }
 
