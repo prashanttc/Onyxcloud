@@ -36,7 +36,7 @@ const AuthForm = ({ type }: Props) => {
     const onSubmit = async (values: z.infer<typeof formSchema>) => {
         setLoading(true);
         setErrorMessage("");
-      
+        setAccountId(undefined);
         try {
           const userResponse =
             type === "sign-up"
@@ -45,19 +45,19 @@ const AuthForm = ({ type }: Props) => {
                   email: values.email,
                 })
               : await SigninUser({ email: values.email });
-          if (userResponse.success) {
             setAccountId(userResponse.accountId); 
-          } else {
             const error = userResponse.error;
+            console.log(error)
+          if(error){
             if (error === "user already exists") {
-              setErrorMessage("The account already exists. Please sign in.");
-            } else if (error === "failed to send OTP!") {
-              setErrorMessage("Failed to send OTP. Please try again later.");
-            } else if (error ==="user does not exist") {
-              setErrorMessage("user does not exist . please create account.");
-            } else {
-              setErrorMessage("Failed to sign up. Please try again later.");
-            }
+                setErrorMessage("The account already exists. Please sign in.");
+              } else if (error === "failed to send OTP!") {
+                setErrorMessage("Failed to send OTP. Please try again later.");
+              } else if (error ==="user does not exist") {
+                setErrorMessage("user does not exist . please create account.");
+              } else {
+                setErrorMessage("Failed to sign in. Please try again later.");
+              }
           }
         } catch (error: any) {
           console.error(error);

@@ -87,7 +87,6 @@ export const GetFile = async ({types=[] , searchText='' , sort='$createdAt-desc'
       appwriteConfig.filesCollectionId,
       queries
     );
-  console.log(files)
     return parseStringify(files)
   } catch (error) {
     handleError(error, "unable to get files");

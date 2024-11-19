@@ -50,7 +50,6 @@ const FileUploader = ({ ownerId, accountId, className }: Props) => {
   }
 
   const { getRootProps, getInputProps } = useDropzone({ onDrop })
-  console.log("files",files)
 
   return (
     <div {...getRootProps()} className='cursor-pointer'>
