@@ -35,32 +35,38 @@ const AuthForm = ({ type }: Props) => {
 
     const onSubmit = async (values: z.infer<typeof formSchema>) => {
         setLoading(true);
-        setErrorMessage("")
+        setErrorMessage("");
+      
         try {
-
-            const user = type === "sign-up" ? await createAccount({
-                fullName: values.fullName || "",
-                email: values.email
-            }) : await SigninUser({ email: values.email })
-            setAccountId(user.accountId)
+          const userResponse =
+            type === "sign-up"
+              ? await createAccount({
+                  fullName: values.fullName || "",
+                  email: values.email,
+                })
+              : await SigninUser({ email: values.email });
+          if (userResponse.success) {
+            setAccountId(userResponse.accountId); 
+          } else {
+            const error = userResponse.error;
+            if (error === "user already exists") {
+              setErrorMessage("The account already exists. Please sign in.");
+            } else if (error === "failed to send OTP!") {
+              setErrorMessage("Failed to send OTP. Please try again later.");
+            } else if (error ==="user does not exist") {
+              setErrorMessage("user does not exist . please create account.");
+            } else {
+              setErrorMessage("Failed to sign up. Please try again later.");
+            }
+          }
+        } catch (error: any) {
+          console.error(error);
+          setErrorMessage("Unexpected error occurred. Please try again later.");
+        } finally {
+          setLoading(false);
         }
-        catch (error: any) {
-            console.error(error);   
-            if (error.message === "User does not exist") {
-                setErrorMessage("The account doesn't exist. Please sign up.");
-              } 
-            if (error.message === "user already exist") {
-                setErrorMessage("The account already exist. Please sign in.");
-              } 
-              else {
-                setErrorMessage("Failed to sign in. Please try again later.");
-              }
-        }
-    
-        finally {
-            setLoading(false)
-        }
-    }
+      };
+      
 
     return (
         <>

@@ -34,31 +34,44 @@ export const sendEmailOTP = async ({ email }: { email: string }) => {
   }
 };
 
-export const createAccount = async ({ fullName, email }:{fullName:string;email:string} ) => {
+export const createAccount = async ({
+  fullName,
+  email,
+}: {
+  fullName: string;
+  email: string;
+}) => {
   try {
     const existingUser = await getUserByEmail(email);
-    const accountId = await sendEmailOTP({ email });
-    if (!accountId) throw new Error("failed to send OTP!");
     if (existingUser) {
-        return { success:false , error:"user already exists"}
+      return { success: false, error: "user already exists" };
     }
+
+    const accountId = await sendEmailOTP({ email });
+    if (!accountId) {
+      return { success: false, error: "failed to send OTP!" };
+    }
+
     const { databases } = await createAdminClient();
     await databases.createDocument(
-     appwriteConfig.databaseId,
-     appwriteConfig.usersCollectionId,
-     ID.unique(),
-     {
-       fullName,
-       email,
-       avatar: avatarPlaceholderUrl,
-       accountId,
-     }
-   );
-     return parseStringify({accountId})
+      appwriteConfig.databaseId,
+      appwriteConfig.usersCollectionId,
+      ID.unique(),
+      {
+        fullName,
+        email,
+        avatar: avatarPlaceholderUrl,
+        accountId,
+      }
+    );
 
-  } catch (error) {
-    console.log(error);
-    handleError(error, "error creating user.");
+    return { success: true, accountId };
+  } catch (error: any) {
+    console.error(error);
+    return {
+      success: false,
+      error: error.message || "An error occurred while creating the account",
+    };
   }
 };
 
@@ -119,7 +132,7 @@ export const SigninUser = async ({ email }: { email: string }) => {
       await sendEmailOTP({ email });
       return parseStringify({ accountId: existingUser.accountId });
     }
-    throw new Error("User does not exist");
+    return { success: false, error: "user does not exist" };
   } catch (error) {
     handleError(error, "Unable to sign in");
     throw error;
