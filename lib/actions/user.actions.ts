@@ -7,6 +7,7 @@ import { parseStringify } from "../utils";
 import { cookies } from "next/headers";
 import { avatarPlaceholderUrl } from "@/constants";
 import { redirect } from "next/navigation";
+import { error } from "console";
 
 const handleError = (error: unknown, message: string) => {
   console.log(error, message);
@@ -39,7 +40,7 @@ export const createAccount = async ({ fullName, email }:{fullName:string;email:s
     const accountId = await sendEmailOTP({ email });
     if (!accountId) throw new Error("failed to send OTP!");
     if (existingUser) {
-      throw new Error("user already exist");
+        return { success:false , error:"user already exists"}
     }
     const { databases } = await createAdminClient();
     await databases.createDocument(
