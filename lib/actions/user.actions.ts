@@ -43,22 +43,23 @@ export const createAccount = async ({ fullName, email }: Props) => {
     const existingUser = await getUserByEmail(email);
     const accountId = await sendEmailOTP({ email });
     if (!accountId) throw new Error("failed to send OTP!");
-    if (!existingUser) {
-      const { databases } = await createAdminClient();
-      const user = await databases.createDocument(
-        appwriteConfig.databaseId,
-        appwriteConfig.usersCollectionId,
-        ID.unique(),
-        {
-          fullName,
-          email,
-          avatar: avatarPlaceholderUrl,
-          accountId,
-        }
-      );
-      console.log("here", user);
+    if (existingUser) {
+      throw new Error("user already exist");
     }
-    throw new Error("user already exist");
+    const { databases } = await createAdminClient();
+    await databases.createDocument(
+     appwriteConfig.databaseId,
+     appwriteConfig.usersCollectionId,
+     ID.unique(),
+     {
+       fullName,
+       email,
+       avatar: avatarPlaceholderUrl,
+       accountId,
+     }
+   );
+     return parseStringify({accountId})
+
   } catch (error) {
     console.log(error);
     handleError(error, "error creating user.");
