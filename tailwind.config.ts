@@ -11,9 +11,9 @@ const config: Config = {
   	extend: {
   		colors: {
   			brand: {
-  				'100': '#EA6365',
+  				'100': '#57EB2C',
   			
-  				DEFAULT: '#FA7275',
+  				DEFAULT: '#66B2FF',
   			},
   			red: '#FF7474',
   			error: '#b80000',
@@ -33,6 +33,9 @@ const config: Config = {
 				'300': '#A9A9A9',
 				'400':'#333333'
   			},
+			Bdark:{
+				'100':'#818588',
+			},
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
   			card: {

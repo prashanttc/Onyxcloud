@@ -4,8 +4,6 @@ import React, { useState } from 'react'
 import {
   Sheet,
   SheetContent,
-  SheetDescription,
-  SheetHeader,
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet"
@@ -60,7 +58,7 @@ const MobileNav = ({ avatar, fullName, email , accountId , $id:ownerId }: Props)
           </nav>
           <Separator className='mb-4 bg-light-200/20' />
           <div className='flex flex-col justify-center items-center w-full  gap-5 pb-5'>
-           <div className='bg-red w-full rounded-3xl flex items-center justify-start'>
+           <div className='bg-brand darK:bg-Bdark-100 w-full rounded-3xl flex items-center justify-start'>
            <FileUploader accountId={accountId} ownerId={ownerId}/>
            </div>
             <button type='submit' className='mobile-sign-out-button' onClick={async()=> await SignOutUser()}>

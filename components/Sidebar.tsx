@@ -17,7 +17,8 @@ const Sidebar = ({avatar,fullName,email}:Props) => {
   return (
     <aside className='sidebar'> 
       <Link href="/"/>
-      <Image src="/assets/icons/logo-full-brand.svg" height={50} width={160} alt='logo' className='hidden h-auto lg:block'/>
+      <Image src="/assets/icons/newlogo.png" height={50} width={260} alt='logo' className=' ml-3 h-auto lg:block dark:hidden'/>
+      <Image src="/assets/icons/newlogodarkmode.png" height={50} width={260} alt='logo' className=' ml-3 h-auto hidden dark:lg:block  '/>
       <Image src="/assets/icons/logo-brand.svg" height={50} width={160} alt='logo' className='  lg:hidden'/>
       <nav className='sidebar-nav'>
         <ul className='flex flex-1 flex-col gap-6'>

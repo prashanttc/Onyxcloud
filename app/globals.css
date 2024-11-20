@@ -153,7 +153,7 @@
   }
 
   .shad-form-item {
-    @apply flex h-[78px] flex-col justify-center rounded-xl border border-light-300 px-4 shadow-drop-1;
+    @apply flex h-[78px] flex-col justify-center rounded-xl border border-light-300 px-4 shadow-drop-1 dark:placeholder:bg-white;
   }
   .shad-form-label {
     @apply text-light-100 pt-2 body-2 w-full !important;
@@ -165,7 +165,7 @@
     @apply space-y-4 max-w-[95%] sm:w-fit rounded-xl md:rounded-[30px] px-4 md:px-8 py-10 bg-white outline-none !important;
   }
   .shad-submit-btn {
-    @apply bg-brand button hover:bg-brand-100 transition-all rounded-full !important;
+    @apply bg-brand button hover:bg-brand-100 transition-all rounded-full dark:bg-Bdark-100 !important;
   }
   .shad-otp {
     @apply w-full flex gap-1 sm:gap-2 justify-between !important;
@@ -232,7 +232,7 @@
     @apply h-full rounded-[20px] bg-white p-5 xl:p-8 dark:bg-dark-100 dark:border-[2px] dark:border-light-200  !important;
   }
   .recent-file-details {
-    @apply flex w-full flex-col xl:flex-row xl:justify-between  !important;
+    @apply flex w-full flex-col xl:flex-row xl:justify-between !important;
   }
   .recent-file-name {
     @apply subtitle-2 line-clamp-1 w-full text-light-100 sm:max-w-[200px] lg:max-w-[250px] dark:text-white !important;
@@ -260,19 +260,19 @@
 
   /* ActionsDropdown */
   .rename-input-field {
-    @apply body-2 shad-no-focus h-[52px] w-full rounded-full border px-4 shadow-drop-1 !important;
+    @apply body-2 shad-no-focus h-[52px] w-full rounded-full border px-4 shadow-drop-1 dark:text-white !important;
   }
   .delete-confirmation {
     @apply text-center text-light-100 !important;
   }
   .delete-file-name {
-    @apply font-medium text-brand-100 !important;
+    @apply font-medium text-brand-100  !important;
   }
   .modal-cancel-button {
-    @apply h-[52px] flex-1 rounded-full bg-white text-light-100 hover:bg-transparent !important;
+    @apply h-[52px] flex-1 rounded-full bg-white text-light-100 hover:bg-transparent dark:hover:bg-white !important;
   }
   .modal-submit-button {
-    @apply primary-btn !mx-0 h-[52px] w-full flex-1 !important;
+    @apply primary-btn !mx-0 h-[52px] w-full flex-1 dark:bg-Bdark-100 dark:text-white !important;
   }
 
   /* ActionsModalContent */
@@ -280,7 +280,7 @@
     @apply !mb-1 flex items-center gap-3 rounded-xl border border-light-200/40 bg-light-400/50 p-3 !important;
   }
   .file-details-label {
-    @apply body-2 w-[30%] text-light-100 !important;
+    @apply body-2 w-[30%] text-light-100 dark:text-white/60 !important;
   }
   .file-details-value {
     @apply subtitle-2 flex-1 !important;
@@ -307,7 +307,7 @@
     @apply h1 text-center text-light-100 md:text-left !important;
   }
   .form-submit-button {
-    @apply primary-btn h-[66px] !important;
+    @apply primary-btn h-[66px] text-white !important;
   }
   .error-message {
     @apply body-2 mx-auto w-fit rounded-xl bg-error/5 px-8 py-4 text-center text-error !important;
@@ -323,13 +323,13 @@
 
   /* Chart */
   .chart {
-    @apply flex items-center rounded-[20px] bg-brand p-5 text-white md:flex-col xl:flex-row !important;
+    @apply flex items-center rounded-[20px] bg-brand p-5 text-white md:flex-col xl:flex-row dark:bg-Bdark-100 !important;
   }
   .chart-container {
     @apply mx-auto aspect-square w-[180px] text-white xl:w-[250px] !important;
   }
   .polar-grid {
-    @apply first:fill-white/20 last:fill-brand !important;
+    @apply first:fill-white/30 dark:first:fill-white last:fill-brand dark:last:fill-Bdark-100 !important;
   }
   .chart-details {
     @apply flex-1 items-start px-3 py-0 sm:px-5 lg:p-3 xl:pr-5 !important;
@@ -341,12 +341,12 @@
     @apply h3 font-bold md:text-center lg:text-left !important;
   }
   .chart-description {
-    @apply subtitle-1 mt-2 w-full text-white/70 md:text-center lg:text-left !important;
+    @apply subtitle-1 mt-2 w-full text-white md:text-center lg:text-left !important;
   }
 
   /* FileUploader */
   .uploader-button {
-    @apply primary-btn h-[52px] gap-2 px-10 shadow-drop-1 !important;
+    @apply rounded-3xl h-[52px] gap-2 px-10 shadow-drop-1 bg-brand hover:bg-brand-100 dark:bg-Bdark-100 dark:text-white !important;
   }
   .uploader-preview-list {
     @apply fixed bottom-10 right-10 z-50 flex size-full h-fit max-w-[480px] flex-col gap-3 rounded-[20px] bg-white p-7 shadow-drop-3 !important;
@@ -370,7 +370,7 @@
     @apply flex-center min-w-fit gap-4 !important;
   }
   .sign-out-button {
-    @apply flex-center h-[52px] min-w-[54px] items-center rounded-full bg-brand/10 p-0 text-brand shadow-none transition-all hover:bg-brand/20 !important;
+    @apply flex-center h-[52px] min-w-[54px] items-center rounded-full bg-brand/10 p-0 text-brand shadow-none transition-all hover:bg-brand/20 dark:bg-Bdark-100/10 dark:text-Bdark-100 dark:hover:bg-Bdark-100/20 !important;
   }
 
   /* Mobile Navigation */
@@ -378,7 +378,7 @@
     @apply flex h-[60px] justify-between px-5 sm:hidden !important;
   }
   .header-user {
-    @apply my-3 flex items-center gap-2 rounded-full p-1 text-light-100 sm:justify-center sm:bg-brand/10 lg:justify-start lg:p-3 !important;
+    @apply my-3 flex items-center gap-2 rounded-full p-1 text-light-100 sm:justify-center sm:bg-brand/10 lg:justify-start lg:p-3  !important;
   }
   .header-user-avatar {
     @apply aspect-square w-10 rounded-full object-cover !important;
@@ -393,7 +393,7 @@
     @apply flex text-light-100 gap-4 w-full justify-start items-center h5 px-6 h-[52px] rounded-full !important;
   }
   .mobile-sign-out-button {
-    @apply h5 flex h-[52px] w-full items-center gap-4 rounded-full bg-brand/10 px-6 text-brand shadow-none transition-all hover:bg-brand/20 !important;
+    @apply h5 flex h-[52px] w-full items-center gap-4 rounded-full bg-brand/10 px-6 text-brand shadow-none transition-all hover:bg-brand/20  dark:bg-Bdark-100/10 dark:text-white dark:hover:bg-Bdark-100/20  !important;
   }
 
   /* OTP Modal */
@@ -436,7 +436,7 @@
   }
 
   .shad-active {
-    @apply bg-brand text-white shadow-drop-2  !important;
+    @apply bg-brand text-white shadow-drop-2 dark:bg-Bdark-100 !important;
   }
 
   /* Sort */

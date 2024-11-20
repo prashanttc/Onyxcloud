@@ -5,6 +5,7 @@ import { getCurrentUser } from '@/lib/actions/user.actions'
 import { redirect } from 'next/navigation'
 import React from 'react'
 import { Toaster } from "@/components/ui/toaster"
+import { ThemeProvider } from '@/components/theme-provider'
 
 export const dynamic = 'force-dynamic'
 
@@ -12,6 +13,12 @@ const layout = async({ children }: { children: React.ReactNode }) => {
   const CurrentUser  = await getCurrentUser();
   if(!CurrentUser) return redirect("/sign-in")
   return (
+    <ThemeProvider
+    attribute="class"
+    defaultTheme="light"
+    enableSystem
+    disableTransitionOnChange
+  >
     <main className='flex h-screen'>
       <Sidebar avatar={CurrentUser.avatar} fullName={CurrentUser.fullName} email={CurrentUser.email} />
       <section className='flex flex-col flex-1 h-full'>
@@ -21,7 +28,9 @@ const layout = async({ children }: { children: React.ReactNode }) => {
       </section>
       <Toaster/>
     </main>
+    </ThemeProvider>
   )
+
 }
 
 export default layout
