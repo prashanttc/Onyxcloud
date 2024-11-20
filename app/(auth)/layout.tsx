@@ -5,7 +5,7 @@ const layout = ({ children }: { children: React.ReactNode }) => {
         <div className="flex min-h-screen">
             <section className=" bg-brand p-10 hidden w-1/2 lg:flex  items-center justify-center xl:w-2/5">
                 <div className="max-h-[800px] max-w-[430px] flex-col flex justify-center space-y-12">
-                    <Image src="/assets/icons/logo-full.svg" height={84} width={164} alt="icon" className="h-auto" />
+                    <Image src="/assets/icons/signinlogo.png" height={84} width={364} alt="icon" className="h-auto" />
                     <div className="space-y-5 text-white">
                         <h1 className="h1">Manage your files the best way</h1>
                         <p className="body-1">This is the place where you can store all of your documents</p>
@@ -15,7 +15,7 @@ const layout = ({ children }: { children: React.ReactNode }) => {
             </section>
             <section className="flex flex-col flex-1 items-center bg-white p-4 py-10 lg:justify-center lg:p-10 lg:py-0 ">
                 <div className="lg:hidden mb-16">
-                    <Image src="assets/icons/logo-full-brand.svg" width={224} height={84} alt="logo" className="h-auto w-[200px] lg:w-[250px]" />
+                    <Image src="/assets/icons/newlogo.png" width={224} height={84} alt="logo" className="h-auto ml-20 w-[200px] lg:w-[250px]" />
                 </div>
                 {children}
             </section>
