@@ -21,7 +21,7 @@ const CustomInput = ({control , name,placeholder,label}:Props) => {
                     control={control}
                     name={name}
                     render={({ field }) => (
-                        <FormItem className="flex-1 w-full">
+                        <FormItem className="">
                          <div className="shad-form-item ">
                          <FormLabel className="shad-form-label">{label}</FormLabel>
                             <FormControl>
