@@ -13,6 +13,7 @@ import Image from "next/image";
 import { getCurrentUser, SigninUser, UpdateUser } from "@/lib/actions/user.actions";
 import { toast } from "@/hooks/use-toast";
 import { avatarPlaceholderUrl } from "@/constants";
+import Link from "next/link";
 
 type Props = {
     type: "edit"
@@ -141,9 +142,9 @@ const ProfileEdit = ({ type }: Props) => {
                     />
 
                     <div className="flex  gap-5">
-                        <Button className="profile-cancel-button">
+                        <Link href='/' className="profile-cancel-button">
                             Cancel
-                        </Button>
+                        </Link>
                         <Button type="submit" className="form-submit-button flex-1" disabled={loading}>
                             Save
                             {loading && (
