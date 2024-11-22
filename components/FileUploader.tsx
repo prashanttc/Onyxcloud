@@ -60,7 +60,7 @@ const FileUploader = ({ ownerId, accountId, className }: Props) => {
       </Button>
       {files.length > 0 && <ul className='uploader-preview-list'>
         <h4 className='h4 text-light-100'>Uploading</h4>
-        {files.map((file, index) => {
+        {files.slice(-5).map((file, index) => {
           const { type, extension } = getFileType(file.name)
           return (
             <li className='uploader-preview-item' key={`${file.name}-${index}`}>

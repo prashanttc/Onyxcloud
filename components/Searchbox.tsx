@@ -53,10 +53,10 @@ const handleclick =(file:Models.Document)=>{
           <ul className='search-result'>
             {result.length > 0 ? (
               result.map((file) => (
-                <li key={file.$id} className='flex items-center justify-center' onClick={()=>handleclick(file)}>
-                  <div className='cursor-pointer flex justify-center h-fit items-center gap-4'>
+                <li key={file.$id} className='flex items-center ' onClick={()=>handleclick(file)}>
+                  <div className='cursor-pointer flex justify-center h-fit items-center gap-4 '>
                     <Thumbnail extension={file.extension} type={file.type} url={file.url} className='size-9 min-w-9' />
-                    <p className='subtitle-2 line-clamp-1 text-light-100'>{file.name}</p>
+                    <p className='subtitle-2 line-clamp-1 text-light-100 dark:text-white'>{file.name}</p>
                   </div>
                 </li>
               ))

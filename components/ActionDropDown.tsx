@@ -71,7 +71,7 @@ const ActionDropDown = ({ file }: { file: Models.Document }) => {
                      <p className='delete-confirmation'>are you sure you want ot delete <span className='delete-file-name'>{file.name}?</span></p>
                     )}
                 </DialogHeader>
-                {['rename', 'share', 'delete'].includes(value) && (
+                {['rename','delete'].includes(value) && (
                     <DialogFooter className='flex flex-col gap-3 md:flex-row'>
                         <Button onClick={allmodelclose} className='modal-cancel-button'>
                             Cancel
@@ -96,7 +96,7 @@ const ActionDropDown = ({ file }: { file: Models.Document }) => {
                     {actionsDropdownItems.map((actionsitem) => (
                         <DropdownMenuItem key={actionsitem.value} className='shad-dropdown-item' onClick={() => {
                             setAction(actionsitem)
-                            if (['rename', 'share', 'delete', 'details'].includes(actionsitem.value)) {
+                            if (['rename', 'delete', 'details'].includes(actionsitem.value)) {
                                 setModelOpen(true)
                             }
                         }}>

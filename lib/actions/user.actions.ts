@@ -3,10 +3,11 @@
 import { ID, Query } from "node-appwrite";
 import { createAdminClient, createSessionClient } from "../appwrite";
 import { appwriteConfig } from "../appwrite/config";
-import { parseStringify } from "../utils";
+import { constructAavatarUrl, constructFileUrl, parseStringify } from "../utils";
 import { cookies } from "next/headers";
 import { avatarPlaceholderUrl } from "@/constants";
 import { redirect } from "next/navigation";
+import { InputFile } from "node-appwrite/file";
 
 const handleError = (error: unknown, message: string) => {
   console.log(error, message);
@@ -110,6 +111,34 @@ export const getCurrentUser = async () => {
     return parseStringify(user.documents[0]);
   } catch (error) {
     console.log(error);
+  }
+};
+export const UpdateUser = async ({newName,AccountId ,avatar}:{newName:string;AccountId:string;avatar:File}) => {
+  try {
+    const { databases } = await createSessionClient();
+    const {storage} = await createAdminClient();
+    const inputFiles = InputFile.fromBuffer(avatar,avatar.name)
+    const bucketFile = await storage.createFile(
+      appwriteConfig.avatarbucketId,
+      ID.unique(),
+      inputFiles
+    );
+    const user = await databases.updateDocument(
+      appwriteConfig.databaseId,
+      appwriteConfig.usersCollectionId,
+       AccountId,{
+        fullName:newName,
+        avatar: constructAavatarUrl(bucketFile.$id)
+       }
+
+    )
+    return parseStringify(user);
+  } catch (error: any) {
+    console.log("error occured while updating user", error);
+    return {
+      success: false,
+      error: error.message || "can't update user!",
+    };
   }
 };
 

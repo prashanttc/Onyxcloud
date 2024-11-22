@@ -34,7 +34,7 @@ const config: Config = {
 				'400':'#333333'
   			},
 			Bdark:{
-				'100':'#818588',
+				'100':'#66B2FF',
 			},
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',

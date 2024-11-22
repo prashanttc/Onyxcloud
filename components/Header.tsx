@@ -4,6 +4,7 @@ import Searchbox from './Searchbox'
 import FileUploader from './FileUploader'
 import { SignOutUser } from '@/lib/actions/user.actions'
 import ThemeToggle from './ThemeToggle'
+import { LogOutIcon } from 'lucide-react'
 
 
 const Header = ({ownerId,accountId}:{ownerId:string; accountId:string})=> {
@@ -19,7 +20,7 @@ const Header = ({ownerId,accountId}:{ownerId:string; accountId:string})=> {
           await SignOutUser()
         }}>
           <button type='submit' className='sign-out-button'>
-            <Image src='/assets/icons/logout.svg' height={24} width={24} alt='logout' className='w-6' />
+      <LogOutIcon/>
           </button>
         </form>
       </div>

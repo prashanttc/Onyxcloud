@@ -151,9 +151,11 @@
   .shad-input {
     @apply border-none shadow-none p-0 shad-no-focus placeholder:text-light-200 body-2 !important;
   }
-
+  .edit-profile-avatar {
+   @apply  bg-[url('/assets/icons/edit.svg')] bg-no-repeat bg-left bg-contain pl-10 py-2 w-80 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-brand
+  }
   .shad-form-item {
-    @apply flex h-[78px] flex-col justify-center rounded-xl border border-light-300 px-4 shadow-drop-1 dark:placeholder:bg-white;
+    @apply flex h-[78px] flex-col justify-center rounded-xl border border-light-300 px-4 shadow-drop-1 dark:placeholder:bg-white flex-1 w-full;
   }
   .shad-form-label {
     @apply text-light-100 pt-2 body-2 w-full !important;
@@ -165,13 +167,13 @@
     @apply space-y-4 max-w-[95%] sm:w-fit rounded-xl md:rounded-[30px] px-4 md:px-8 py-10 bg-white outline-none !important;
   }
   .shad-submit-btn {
-    @apply bg-brand button hover:bg-brand-100 transition-all rounded-full dark:bg-Bdark-100 !important;
+    @apply bg-brand button hover:bg-brand transition-all rounded-full dark:bg-Bdark-100 !important;
   }
   .shad-otp {
     @apply w-full flex gap-1 sm:gap-2 justify-between !important;
   }
   .shad-otp-slot {
-    @apply text-[40px] font-medium rounded-xl ring-brand shadow-drop-1 text-brand-100 justify-center flex border-2 border-light-300 size-12 md:size-16 gap-5 !important;
+    @apply text-[40px] font-medium rounded-xl ring-brand shadow-drop-1 text-brand justify-center flex border-2 border-light-300 size-12 md:size-16 gap-5 !important;
   }
 
   .shad-sheet {
@@ -309,6 +311,9 @@
   .form-submit-button {
     @apply rounded-[130px] bg-brand h-[66px] text-white !important;
   }
+  .profile-cancel-button {
+    @apply rounded-[130px] bg-white h-[66px] text-brand flex-1 drop-shadow-xl !important;
+  }
   .error-message {
     @apply body-2 mx-auto w-fit rounded-xl bg-error/5 px-8 py-4 text-center text-error !important;
   }
@@ -346,16 +351,16 @@
 
   /* FileUploader */
   .uploader-button {
-    @apply rounded-3xl h-[52px] gap-2 px-10 shadow-drop-1 bg-brand hover:bg-brand-100 dark:bg-Bdark-100 dark:text-white !important;
+    @apply rounded-3xl h-[52px] gap-2 px-10 shadow-drop-1 bg-brand hover:bg-brand dark:bg-Bdark-100 dark:text-white !important;
   }
   .uploader-preview-list {
-    @apply fixed bottom-10 right-10 z-50 flex size-full h-fit max-w-[480px] flex-col gap-3 rounded-[20px] bg-white p-7 shadow-drop-3 !important;
+    @apply fixed bottom-10 right-10 z-50 flex size-full h-fit w-fit  max-w-[480px] flex-col gap-3 rounded-[20px] bg-white p-7 shadow-drop-3 max-h-[300px] overflow-hidden !important;
   }
   .uploader-preview-item {
-    @apply flex items-center justify-between  gap-3 rounded-xl p-3 shadow-drop-3 !important;
+    @apply flex items-center justify-between  gap-3 rounded-xl p-3 shadow-drop-3  !important;
   }
   .preview-item-name {
-    @apply subtitle-2 mb-2 line-clamp-1 max-w-[300px] !important;
+    @apply subtitle-2 mb-2 line-clamp-1 max-w-[110px] overflow-hidden !important;
   }
 
   .error-toast {
@@ -412,7 +417,7 @@
     @apply body-2 shad-no-focus  placeholder:body-1 w-full border-none p-0 shadow-none placeholder:text-light-200 !important;
   }
   .search-result {
-    @apply absolute left-0 top-16 z-50 flex w-full flex-col gap-3 rounded-[20px] bg-white p-4 !important;
+    @apply absolute left-0 top-16 z-50 flex w-full flex-col gap-3 rounded-[20px] bg-white p-4 dark:bg-dark-100 !important;
   }
   .empty-result {
     @apply body-2 text-center text-light-100 !important;

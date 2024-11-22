@@ -26,8 +26,8 @@ const layout = async({ children }: { children: React.ReactNode }) => {
         <Header ownerId={CurrentUser.$id} accountId={CurrentUser.accountId} />
         <div className='main-content'>{children}</div>
       </section>
-      <Toaster/>
-    </main>
+    </main>  
+    <Toaster/>
     </ThemeProvider>
   )
 
