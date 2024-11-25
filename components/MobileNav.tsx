@@ -25,7 +25,7 @@ type Props = {
   email: string;
   accountId: string
 }
-const MobileNav = ({ avatar, fullName, email, accountId, $id: ownerId }: Props) => {
+const MobileNav = ({ avatar, fullName, accountId, $id: ownerId }: Props) => {
   const [open, setOpen] = useState(false)
   const pathname = usePathname();
   return (
@@ -40,7 +40,7 @@ const MobileNav = ({ avatar, fullName, email, accountId, $id: ownerId }: Props) 
           <SheetTitle>
             <div className='header-user'>
               <Image src={avatar} height={44} width={44} alt='' className='header-user-avatar' />
-              <div className='sm:hidden lg:block flex gap-10'>
+              <div className='sm:hidden lg:block flex gap-1'>
                 <p className='subtitle-2 capitalize dark:text-white'>{fullName}</p>
               <Link href="user-profile" onClick={()=> setOpen(false)}>
               <EditIcon className='size-4 dark:text-Bdark-100' />
