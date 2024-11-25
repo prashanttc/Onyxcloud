@@ -312,7 +312,7 @@
     @apply rounded-[130px] bg-brand h-[66px] text-white !important;
   }
   .profile-cancel-button {
-    @apply rounded-[130px] bg-white h-[66px] text-brand flex-1 drop-shadow-xl !important;
+    @apply rounded-[130px] bg-white h-[66px] text-brand flex-1 drop-shadow-xl flex justify-center items-center !important;
   }
   .error-message {
     @apply body-2 mx-auto w-fit rounded-xl bg-error/5 px-8 py-4 text-center text-error !important;
